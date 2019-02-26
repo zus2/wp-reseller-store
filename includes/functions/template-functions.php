@@ -77,12 +77,12 @@ function rstore_price( $post = null , $echo = null ) {
 
 	$output = sprintf( '<div class="rstore-pricing">%s</div>', $output );
 
-	if ($echo) {    // legacy cat and prod default pages receive echo parameter from Turnkey reseller store templates - single-product.php and list-product.php
-		echo $output;
+	// WP category and product pages use $echo parameter from Turnkey reseller store templates - single-product.php and list-product.php
+	if ( ! $echo ) { 
+		return $output;
 	}
-	else {     // eg. product module
-		return $output; 
-	}
+
+	echo $output; 
 
 }
 
